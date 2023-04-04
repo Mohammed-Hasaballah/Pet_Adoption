@@ -13,6 +13,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: MediaQuery.of(context).size.height,
       padding: const EdgeInsets.only(top: 80, left: 10),
       color: primarycolor,
       child: Column(
@@ -34,7 +35,9 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     Text(
                       'Mohammed Hasaballah',
                       style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22),
                     ),
                     Text('Active Status',
                         style: TextStyle(
@@ -49,21 +52,22 @@ class _DrawerScreenState extends State<DrawerScreen> {
           Column(
               children: drawerItem
                   .map((e) => Row(
+                        // mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
                             e['icon'],
                             color: Colors.white,
-                            size: 40,
+                            size: 30,
                           ),
                           const SizedBox(
-                            height: 50,
-                            width: 10,
+                            height: 70,
+                            width: 20,
                           ),
                           Text(
                             e['title'],
                             style: const TextStyle(
                                 color: Colors.white,
-                                fontSize: 30,
+                                fontSize: 25,
                                 fontWeight: FontWeight.bold),
                           ),
                         ],

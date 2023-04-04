@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             const SizedBox(
-              height: 80,
+              height: 70,
             ),
             // the first part of the home page => our customized app bar
             Container(
@@ -89,12 +89,14 @@ class _HomeScreenState extends State<HomeScreen> {
             // the second part of the home page => the text field section
             Container(
                 padding: const EdgeInsets.fromLTRB(30, 10, 30, 30),
+                // margin: const EdgeInsets.all(20),
                 child: TextField(
                   decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(vertical: 10),
                     // without taping on the text field the next will be shown
                     enabledBorder: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(30)),
-                      borderSide: BorderSide(color: Colors.transparent),
+                      borderSide: BorderSide(color: Colors.black),
                     ),
                     // when we tap on the text field the next will be shown
                     focusedBorder: OutlineInputBorder(
@@ -106,13 +108,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: primarycolor,
                     ),
                     hintText: "Search Pet",
+
                     filled: true,
-                    fillColor: const Color.fromARGB(255, 227, 217, 217),
+                    fillColor: Colors.transparent,
                   ),
                 )),
             // the third part of the home page => the list view section
             SizedBox(
-                height: 120,
+                height: 100,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: categories.length,
@@ -317,6 +320,97 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             const Text(
                               'Distance 7.8 km',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: Color.fromARGB(255, 66, 66, 66)),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  )),
+                ],
+              ),
+            ),
+            Container(
+              height: 240,
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                children: [
+                  Expanded(
+                      child: Stack(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 99, 102, 103),
+                            boxShadow: listShadow,
+                            borderRadius: BorderRadius.circular(20)),
+                        //  the next margin will help the 3D shape
+                        margin: const EdgeInsets.only(top: 50),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(10),
+                        child: Align(
+                          child: Image.asset('images/pet-cat3.png'),
+                        ),
+                      )
+                    ],
+                  )),
+                  Expanded(
+                      child: Container(
+                    margin: const EdgeInsets.only(top: 60, bottom: 20),
+                    padding: const EdgeInsets.only(left: 10),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: listShadow,
+                        borderRadius: const BorderRadius.only(
+                            topRight: Radius.circular(20),
+                            bottomRight: Radius.circular(20))),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            const Text(
+                              'Samra',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
+                            ),
+                            IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.female,
+                                  color: primarycolor,
+                                  size: 30,
+                                )),
+                          ],
+                        ),
+                        const Text(
+                          'Abyssinian Cat',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                              color: Color.fromARGB(255, 66, 66, 66)),
+                        ),
+                        const Text(
+                          '6.5 years old',
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 122, 120, 120)),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: <Widget>[
+                            IconButton(
+                              icon:
+                                  Icon(Icons.location_on, color: primarycolor),
+                              onPressed: () {},
+                            ),
+                            const Text(
+                              'Distance 14 km',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
